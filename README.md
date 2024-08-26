@@ -34,7 +34,7 @@ To use the tomography functions, you need to provide them with measurement data 
 bobData = [...]; % Replace with your actual data
 
 % Call the m3 function
-[MTestResult, Assem, T, epsx, Lag, Lag0] = m3(bobData, Assem, epsx);
+[MTestResult, Assem, T, epsx, Lag, Lag0] = tomography_m3(bobData, Assem, epsx);
 ```
 
 ### License

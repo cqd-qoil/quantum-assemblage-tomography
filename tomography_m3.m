@@ -1,4 +1,4 @@
-function [MTestResult, Assem, T, epsx, gamma, Lag, Lag0] = m3(bobData, Assem, epsx)
+function [MTestResult, Assem, T, epsx, gamma, Lag, Lag0] = tomography_m3(bobData, Assem, epsx)
     % m3 - Perform assemblage tomography on quantum measurement data (bobData) using
     % conical optimization techniques to estimate: quantum assemblage and reduced
     % quantum state of the trusted pary, detection efficiencies and biases of the
