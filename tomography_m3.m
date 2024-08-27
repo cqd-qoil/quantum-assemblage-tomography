@@ -53,7 +53,7 @@ function [MTestResult, Assem, T, epsx, gamma, Lag, Lag0] = tomography_m3(bobData
 
     % ---------------------------------------------------------------------------%
     % We first try fixing all the scalars while optimizing the matrices. Using
-    % brute force to search for the change in gamma_x and epsx
+    % our method to search for the preferrable change in gamma_x and epsx
     % You need to run tomography algorithm m2 to obtain the variable Assem.
     % Then run this script.
 
