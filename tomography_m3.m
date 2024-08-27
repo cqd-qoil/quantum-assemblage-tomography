@@ -31,7 +31,7 @@ function [MTestResult, Assem, T, epsx, gamma, Lag, Lag0] = tomography_m3(bobData
     % Lag0: Log likelihood of the baseline model, serving as a reference
     %       point for comparison.
 
-    % Copyright (c) 2024 Yuanlong Wang (and Luis Villegas-Aguilar)
+    % Copyright (c) 2024 Yuanlong Wang and Luis Villegas-Aguilar
 
     % Permission is hereby granted, free of charge, to any person obtaining a copy
     % of this software and associated documentation files (the "Software"), to deal
@@ -227,7 +227,7 @@ function [MTestResult, Assem, T, epsx, gamma, Lag, Lag0] = tomography_m3(bobData
                           Sig{2} * (1 + (gamma(x) < 0) * gamma(x)) == T * epsx0, ...
                           Sig{1} + Sig{2} + Sig{3} == T, ...
                           Sig{1} >= 0, Sig{2} >= 0, Sig{3} >= 0, ...
-                          epsx0 >= 0.5, epsx0 <= 0.8];
+                          epsx0 >= 0.0, epsx0 <= 1];
                 obj = 0;
                 for b = 1:bMax
                     for y = 1:yMax
@@ -259,7 +259,7 @@ function [MTestResult, Assem, T, epsx, gamma, Lag, Lag0] = tomography_m3(bobData
                           Sig{2} * (1 + (gamma(x) < 0) * gamma(x)) == T * epsx0, ...
                           Sig{1} + Sig{2} + Sig{3} == T, ...
                           Sig{1} >= 0, Sig{2} >= 0, Sig{3} >= 0, ...
-                          epsx0 >= 0.5, epsx0 <= 0.8];
+                          epsx0 >= 0, epsx0 <= 1];
                 obj = 0;
                 for b = 1:bMax
                     for y = 1:yMax
@@ -362,7 +362,7 @@ function [MTestResult, Assem, T, epsx, gamma, Lag, Lag0] = tomography_m3(bobData
                   Sig{2} * (1 + (gamma(x) < 0) * gamma(x)) == T * epsx0, ...
                   Sig{1} + Sig{2} + Sig{3} == T, ...
                   Sig{1} >= 0, Sig{2} >= 0, Sig{3} >= 0, ...
-                  epsx0 >= 0.5, epsx0 <= 0.8];
+                  epsx0 >= 0, epsx0 <= 1];
         obj = 0;
 
         % Objective function for final optimization
@@ -451,8 +451,7 @@ function [MTestResult, Assem, T, epsx, gamma, Lag, Lag0] = tomography_m3(bobData
     temv3 = expf .* temv1;
     RelativeFreqErr = (norm(temv2(:), 'fro')) / (norm(temv3(:), 'fro'));
 
-    % Uncomment to display results
-    % disp('[errMax, RelativeFreqErr, MTest]')
+    % Uncomment to display resultsz
     % disp([errMax, RelativeFreqErr, MTestResult])
 
     % Reverse gamma for final output

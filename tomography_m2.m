@@ -29,7 +29,7 @@ function [MTestResult, Assem, T, epsx, Lag, Lag0] = tomography_m2(bobData)
     % Lag0: Log likelihood of the baseline model, serving as a reference
     %       point for comparison.
 
-    % Copyright (c) 2024 Yuanlong Wang (and Luis Villegas-Aguilar)
+    % Copyright (c) 2024 Yuanlong Wang and Luis Villegas-Aguilar
 
     % Permission is hereby granted, free of charge, to any person obtaining a copy
     % of this software and associated documentation files (the "Software"), to deal
@@ -101,7 +101,6 @@ function [MTestResult, Assem, T, epsx, Lag, Lag0] = tomography_m2(bobData)
 
     % Estimate the general detection efficiency
     epsilon = sum(data(:, 1:4), 'all') / sum(data, 'all');
-    % epsilon = sum(sum(sum(data(:,1:4)))) / sum(sum(sum(data(:,:))));
 
     % Initialize assemblage and detection efficiency
     Assem = zeros(2, 2, aMax, xMax);
@@ -241,6 +240,5 @@ function [MTestResult, Assem, T, epsx, Lag, Lag0] = tomography_m2(bobData)
     RelativeFreqErr = (norm(temv2(:), 'fro')) / (norm(temv3(:), 'fro'));
 
     % Uncomment to display results
-    % disp('[errMax, RelativeFreqErr, MTest]')
     % disp([errMax, RelativeFreqErr, MTestResult])
 end
